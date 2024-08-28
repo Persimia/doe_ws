@@ -1,0 +1,1 @@
+/home/skemp32/doe_ws/build/lidar_scan_controller/ament_cmake_core/lidar_scan_controllerConfig.cmake

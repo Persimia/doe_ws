@@ -29,7 +29,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-"""Launch an iris quadcopter in Gazebo and Rviz."""
+"""Launch an doe quadcopter in Gazebo and Rviz."""
 from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
@@ -51,18 +51,18 @@ dir_path = os.path.dirname(os.path.realpath(__file__)) # Current directory path
 
 
 def generate_launch_description():
-    """Generate a launch description for a iris quadcopter."""
+    """Generate a launch description for a doe quadcopter."""
     pkg_ros_gz_sim = get_package_share_directory("ros_gz_sim")
 
-    # Iris.
-    iris = IncludeLaunchDescription(
+    # Doe.
+    doe = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             [
                 PathJoinSubstitution(
                     [
                         dir_path,
                         "robots",
-                        "iris_lidar.launch.py",
+                        "doe_lidar.launch.py",
                     ]
                 ),
             ]
@@ -76,7 +76,7 @@ def generate_launch_description():
         ),
         launch_arguments={
             "gz_args": "-v4 -s -r "
-            + f'{Path(dir_path) / "worlds" / "iris_lidar_turbine.sdf"}'
+            + f'{Path(dir_path) / "worlds" / "doe_lidar_turbine.sdf"}'
         }.items(),
     )
 
@@ -91,6 +91,6 @@ def generate_launch_description():
         [
             gz_sim_server,
             gz_sim_gui,
-            iris,
+            doe,
         ]
     )

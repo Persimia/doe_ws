@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 <sdf version="1.9">
 
-  <model name="iris_with_lidar">
+  <model name="doe_with_lidar">
     <include merge="true">
       <uri>model://iris_with_standoffs</uri>
     </include>
@@ -314,14 +314,14 @@
         <gz_frame_id>base_scan</gz_frame_id>
         <pose>0 0 0 0 0 0</pose>
         <topic>lidar</topic>
-        <update_rate>10</update_rate>
+        <update_rate>5</update_rate>
         <lidar>
           <scan>
             <horizontal>
-              <samples>640</samples>
+              <samples>5000</samples>
               <resolution>1</resolution>
-              <min_angle>-3.14159265</min_angle>
-              <max_angle>3.14159265</max_angle>
+              <min_angle>-2.79253</min_angle>
+              <max_angle>2.79253</max_angle>
             </horizontal>
             <vertical>
               <samples>1</samples>
@@ -331,8 +331,8 @@
             </vertical>
           </scan>
           <range>
-            <min>0.08</min>
-            <max>10.0</max>
+            <min>0.2</min>
+            <max>50.0</max>
             <resolution>0.01</resolution>
           </range>
         </lidar>

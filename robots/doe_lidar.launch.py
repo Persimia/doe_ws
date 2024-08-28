@@ -14,7 +14,7 @@
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 
 """
-Launch an iris quadcopter in Gazebo and Rviz.
+Launch an doe quadcopter in Gazebo and Rviz.
 
 ros2 launch ardupilot_sitl sitl_dds_udp.launch.py
 transport:=udp4
@@ -26,7 +26,7 @@ speedup:=1
 slave:=0
 instance:=0
 defaults:=$(ros2 pkg prefix ardupilot_sitl)
-          /share/ardupilot_sitl/config/default_params/gazebo-iris.parm,
+          /share/ardupilot_sitl/config/default_params/gazebo-doe.parm,
           $(ros2 pkg prefix ardupilot_sitl)
           /share/ardupilot_sitl/config/default_params/dds_udp.parm
 sim_address:=127.0.0.1
@@ -56,7 +56,7 @@ from launch_ros.substitutions import FindPackageShare
 dir_path = os.path.dirname(os.path.realpath(__file__)) # Current directory path
 
 def generate_launch_description():
-    """Generate a launch description for a iris quadcopter."""
+    """Generate a launch description for a doe quadcopter."""
 
     # Include component launch files.
     sitl_dds = IncludeLaunchDescription(
@@ -85,7 +85,7 @@ def generate_launch_description():
                 "..",
                 "config",
                 "default_params",
-                "gazebo-iris.parm",
+                "gazebo-doe.parm",
             )
             + ","
             + os.path.join(
@@ -106,18 +106,18 @@ def generate_launch_description():
     # Ensure `SDF_PATH` is populated as `sdformat_urdf`` uses this rather
     # than `GZ_SIM_RESOURCE_PATH` to locate resources.
     if "GZ_SIM_RESOURCE_PATH" in os.environ:
-        gz_sim_resource_path = os.environ["GZ_SIM_RESOURCE_PATH"]
-        os.environ["GZ_SIM_RESOURCE_PATH"] = os.path.join(dir_path, "..", "worlds") + ":" + gz_sim_resource_path
+        os.environ["GZ_SIM_RESOURCE_PATH"] = os.path.join(dir_path, "..", "worlds") + ":" + os.environ["GZ_SIM_RESOURCE_PATH"]
+        os.environ["GZ_SIM_RESOURCE_PATH"] = os.path.join(dir_path, "..", "models") + ":" + os.environ["GZ_SIM_RESOURCE_PATH"]
 
         if "SDF_PATH" in os.environ:
             sdf_path = os.environ["SDF_PATH"]
-            os.environ["SDF_PATH"] = sdf_path + ":" + gz_sim_resource_path
+            os.environ["SDF_PATH"] = sdf_path + ":" + os.environ["GZ_SIM_RESOURCE_PATH"]
         else:
-            os.environ["SDF_PATH"] = gz_sim_resource_path
+            os.environ["SDF_PATH"] = os.environ["GZ_SIM_RESOURCE_PATH"]
 
     # Load SDF file.
     sdf_file = os.path.join(
-        dir_path, ".." , "models", "iris_with_lidar", "model.sdf"
+        dir_path, ".." , "models", "doe_with_lidar", "model.sdf"
     )
     with open(sdf_file, "r") as infp:
         robot_desc = infp.read()
@@ -142,7 +142,7 @@ def generate_launch_description():
         parameters=[
             {
                 "config_file": os.path.join(
-                    dir_path, "..", "config", "iris_lidar_bridge.yaml"
+                    dir_path, "..", "config", "doe_lidar_bridge.yaml"
                 ),
                 "qos_overrides./tf_static.publisher.durability": "transient_local",
             }

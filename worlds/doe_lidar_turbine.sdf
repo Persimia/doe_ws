@@ -73,8 +73,8 @@
     </include>
 
     <include>
-      <uri>model://iris_with_lidar</uri>
-      <name>iris</name>
+      <uri>model://doe_with_lidar</uri>
+      <name>doe</name>
       <pose degrees="true">0 0 0.195 0 0 90</pose>
     </include>
 
