@@ -296,3 +296,6 @@ codecov
 
 log/
 logs/
+
+install/
+/install

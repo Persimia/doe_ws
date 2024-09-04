@@ -1,8 +1,0 @@
-source;share/sf45b_serial_node/hook/cmake_prefix_path.ps1
-source;share/sf45b_serial_node/hook/cmake_prefix_path.dsv
-source;share/sf45b_serial_node/hook/cmake_prefix_path.sh
-source;share/sf45b_serial_node/local_setup.bash
-source;share/sf45b_serial_node/local_setup.dsv
-source;share/sf45b_serial_node/local_setup.ps1
-source;share/sf45b_serial_node/local_setup.sh
-source;share/sf45b_serial_node/local_setup.zsh
