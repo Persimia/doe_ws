@@ -1,0 +1,3 @@
+[submodule "src/sf45b_serial_node"]
+	path = src/sf45b_serial_node
+	url = https://github.com/Persimia/sf45b_serial_node.git
