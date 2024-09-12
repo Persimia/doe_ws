@@ -4,6 +4,14 @@
     <static>true</static>
     <pose>0 0 0 0 0 0</pose>
     <link name='base_link'>
+        <inertial>
+            <mass>1000000</mass>
+            <inertia>
+              <ixx>1000000</ixx>
+              <iyy>1000000</iyy>
+              <izz>1000000</izz>
+            </inertia>
+          </inertial>    
       <visual name='base_visual'>
         <geometry>
           <mesh>
@@ -23,6 +31,14 @@
           </pbr>
         </material>
       </visual>
+      <collision name="collision">
+        <geometry>
+            <mesh>
+              <uri>model://turbine/meshes/turbine_vertical.stl</uri>
+              <scale>.25 .25 .25</scale>
+            </mesh>
+          </geometry>
+      </collision>
     </link>
   </model>
 </sdf>
