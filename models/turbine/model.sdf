@@ -4,6 +4,11 @@
     <static>true</static>
     <pose>0 0 0 0 0 0</pose>
     <link name='base_link'>
+        <velocity_decay>
+            <linear>1000000</linear>  <!-- Higher values mean more damping, hence slower max speed -->
+            <angular>1000000</angular>
+        </velocity_decay>
+        <self_collide>true</self_collide>
         <inertial>
             <mass>1000000</mass>
             <inertia>
@@ -20,8 +25,8 @@
           </mesh>
         </geometry>
         <material>
-          <ambient>0.05 0.05 0.05</ambient>
-          <diffuse>0.05 0.05 0.05</diffuse>
+          <ambient>1 1 1</ambient>
+          <diffuse>1 1 1</diffuse>
           <specular>1 1 1 1</specular>
           <pbr>
             <metal>
@@ -38,6 +43,24 @@
               <scale>.25 .25 .25</scale>
             </mesh>
           </geometry>
+          <surface>
+            <friction>
+                <ode>
+                    <mu>
+                        50.0
+                    </mu>
+                    <mu2>
+                        50.0
+                    </mu2>
+                </ode>
+            </friction>
+            <contact>
+              <ode>
+                <max_vel>0</max_vel>
+                <min_depth>0.01</min_depth>
+              </ode>
+            </contact>
+          </surface>
       </collision>
     </link>
   </model>

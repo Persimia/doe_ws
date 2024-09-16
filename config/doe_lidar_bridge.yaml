@@ -45,3 +45,15 @@
   reliability: BEST_EFFORT
   subscriber_queue: 1
   publisher_queue: 1
+
+- ros_topic_name: "attach"
+  gz_topic_name: "/attach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
+
+- ros_topic_name: "detach"
+  gz_topic_name: "/detach"
+  ros_type_name: "std_msgs/msg/Empty"
+  gz_type_name: "gz.msgs.Empty"
+  direction: ROS_TO_GZ
