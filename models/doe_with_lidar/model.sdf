@@ -527,73 +527,9 @@
         <child_link>base_link</child_link>
         <detach_topic>/detach</detach_topic>
         <attach_topic>/attach</attach_topic>
+        <output_topic>/attached_state</output_topic>
         <suction_force>100</suction_force>
     </plugin>
-
-    <!-- floppy probe
-    <link name='probe'>
-        <pose relative_to="base_link">.4 0 0 0 0 0</pose> !angles are in radian
-        <inertial>
-            <mass>0.01</mass>
-            <inertia>
-                <ixx>0.01</ixx>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyy>0.01</iyy>
-                <iyz>0</iyz>
-                <izz>0.01</izz>
-            </inertia>
-        </inertial>
-        <visual name='visual'>
-            <geometry>
-                <box>
-                    <size>0.5 0.05 0.1</size>
-                </box>
-            </geometry>
-            <material>
-                <ambient>0.0 1 0.0 1</ambient>
-                <diffuse>0.0 1 0.0 1</diffuse>
-                <specular>0.0 1 0.0 1</specular>
-            </material>
-        </visual>
-        <collision name='collision'>
-            <geometry>
-                <box>
-                    <size>0.5 0.05 0.1</size>
-                </box>
-            </geometry>
-        </collision>
-        <sensor name='sensor_contact' type='contact'>
-            <contact>
-                <collision>collision</collision>
-            </contact>
-        </sensor>
-    </link>
-    <plugin filename="SuctionPlugin"
-            name="SuctionPlugin">
-        <parent_link>probe</parent_link>
-        <child_model>turbine</child_model>
-        <child_link>base_link</child_link>
-        <detach_topic>/detach</detach_topic>
-        <attach_topic>/attach</attach_topic>
-    </plugin>
-    <joint name='probe_joint' type='revolute'>
-        <pose relative_to='probe'>-.25 0 0 0 0 0</pose>
-        <parent>base_link</parent>
-        <child>probe</child>
-        <axis>
-            <xyz expressed_in='__model__'>0 1 0</xyz>
-            <limit>
-                <lower>-1.79769e+308</lower>    !negative infinity
-                <upper>1.79769e+308</upper>     !positive infinity
-            </limit>
-            <dynamics>
-                <damping>10</damping>
-                <spring_reference> -.7 </spring_reference>
-                <spring_stiffness> 100 </spring_stiffness>
-            </dynamics>
-        </axis>
-    </joint> -->
 
   </model>
 

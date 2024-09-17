@@ -57,3 +57,9 @@
   ros_type_name: "std_msgs/msg/Empty"
   gz_type_name: "gz.msgs.Empty"
   direction: ROS_TO_GZ
+
+- ros_topic_name: "attached_state"
+  gz_topic_name: "/attached_state"
+  ros_type_name: "std_msgs/msg/String"
+  gz_type_name: "gz.msgs.StringMsg"
+  direction: GZ_TO_ROS
